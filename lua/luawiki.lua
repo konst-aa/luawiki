@@ -38,10 +38,10 @@ local function link()
     end
 
     if (starts(block, "[") and ends(block, ')')) then
-        local t = 1
-        while ind(block, t) ~= '(' do
-            t = t + 1
-        end
+        local t = string.find(block, '(')
+        -- while ind(block, t) ~= '(' do
+        --     t = t + 1
+        -- end
 
         local name = string.sub(block, t+1, string.len(block) - 1)
         -- print(#Depth)
