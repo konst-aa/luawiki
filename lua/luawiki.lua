@@ -2,7 +2,6 @@ local function ind(s, i)
     return string.sub(s, i, i)
 end
 local function starts(s, pre)
-    print(string.sub(s,1,string.len(pre)))
    return string.sub(s,1,string.len(pre))==pre
 end
 local function ends(s, post)
@@ -39,12 +38,8 @@ local function link()
 
     if (starts(block, "[") and ends(block, ')')) then
         local t = string.find(block, '(')
-        -- while ind(block, t) ~= '(' do
-        --     t = t + 1
-        -- end
 
         local name = string.sub(block, t+1, string.len(block) - 1)
-        -- print(#Depth)
         table.insert(Depth, vim.api.nvim_buf_get_name(0))
         vim.cmd("e " .. name)
     elseif (string.len(block) > 0) then
