@@ -11,7 +11,9 @@ As of 2024-09-06 I no longer use Vimwiki. It was a great ride
 Install using your preferred nvim package manager.
 
 
-Then, `require("luawiki")` in your `init.lua`.
+Then, `require("luawiki").setup {}` in your `init.lua`.
+
+Note: this plugin is unfortunately incompatible with [vim-autopairs](https://github.com/jiangmiao/auto-pairs), so I recommend using [nvim-autopairs](https://github.com/windwp/nvim-autopairs)
 
 ### Usage and customization
 #### Keybinds:
@@ -19,9 +21,13 @@ Then, `require("luawiki")` in your `init.lua`.
 - `Enter` (on a link) -> follow the link, opening the file in a new buffer
 - `Enter` (on a word) -> create a link to `word.md`
 - `Backspace` -> Go to previous/parent link. NOTE: This shortcut doesn't close the buffer left behind
+- `Shift-Enter` (on a todo line that starts with `- [ ]`) -> check item off
+- same thing but for a checked-off item -> uncheck it
+- `Shift-Enter` (in normal mode, at an empty line) -> create todolist entry, and go into insert mode
+- `Enter` (in insert mode, at an empty todolist entry) -> clears the line
 
 #### Configuring:
-There is currently nothing to configure.
+There is effectively nothing to configure.
 
 ### Considering:
 - [ ] jumping between wiki links with tab
